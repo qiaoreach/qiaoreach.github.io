@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quellmoor Demo Furniture Works | Outdoor Aluminium Furniture (Fictional Example Capability Page)</title>
-<meta name="description" content="Fictional example. Quellmoor Demo Furniture Works does not exist. A demo factory capability page created by QiaoReach to show structured product, capacity, MOQ and lead time data for buyers and buyer-side AI.">
+<meta name="description" content="Fictional example. Quellmoor Demo Furniture Works does not exist. A demo factory capability page created by QiaoReach to show structured factory proof, material specs, capacity, MOQ, lead time, packaging and shipping terms for buyers and buyer-side AI.">
 <link rel="canonical" href="https://qiaoreach.github.io/demo-factory-sample.html">
 <style>
     * { box-sizing: border-box; }
@@ -13,27 +13,134 @@
     main { max-width: 860px; margin: 0 auto; padding: 24px 20px 64px; }
     h1 { font-size: 1.7rem; margin-bottom: 4px; line-height: 1.25; }
     h2 { font-size: 1.2rem; margin-top: 36px; border-bottom: 2px solid #111; padding-bottom: 6px; }
+    h3 { font-size: 1.02rem; margin: 20px 0 6px; }
     .sub { color: #555; margin-top: 0; }
     .tw { overflow-x: auto; }
     table { border-collapse: collapse; width: 100%; margin: 12px 0; }
     th, td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top; }
     th { background: #f2f2f2; width: 34%; }
-    .tbd { background: #f7f7f7; border: 1px solid #999; padding: 14px 16px; border-radius: 8px; }
-    .src, .src a { color: #555; font-size: 0.9em; word-break: break-all; }
+    .proof { border: 2px solid #111; border-radius: 8px; padding: 14px 16px; margin: 16px 0; }
+    .proof h2 { margin-top: 0; }
+    .slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 12px 0; }
+    .slot { border: 1px dashed #999; background: #f7f7f7; border-radius: 6px; min-height: 96px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px; font-size: 0.88em; color: #555; }
+    .ex { color: #555; font-style: italic; }
+    .small { color: #555; font-size: 0.9em; }
     ul { padding-left: 20px; }
-    @media (max-width: 600px) { h1 { font-size: 1.35rem; } th, td { display: block; width: 100%; } th { border-bottom: none; } main { padding: 16px 14px 48px; } }
+    @media (max-width: 600px) { h1 { font-size: 1.35rem; } th, td { display: block; width: 100%; } th { border-bottom: none; } main { padding: 16px 14px 48px; } .slots { grid-template-columns: 1fr 1fr; } .slot { min-height: 80px; font-size: 0.8em; } }
   .notice { border: 2px solid #111; padding: 12px 16px; font-weight: 600; margin: 16px 0; }
+    .diagram { margin: 16px 0; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background: #fafafa; }
+    .diagram img { display: block; width: 100%; height: auto; }
+    .diagram figcaption { font-size: 0.85em; color: #555; padding: 8px 12px; border-top: 1px solid #eee; background: #fff; }
+    .slot { flex-direction: column; gap: 4px; min-height: 110px; line-height: 1.35; }
+    .slot .sid { font-size: 0.75em; color: #888; font-family: ui-monospace, monospace; }
+    .slot .zh { color: #333; font-weight: 600; }
+    .slot .en { color: #555; font-size: 0.92em; }
 </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Quellmoor Demo Furniture Works",
-  "url": "https://qiaoreach.github.io/demo-factory-sample.html",
-  "description": "Fictional example. This company does not exist. Created by QiaoReach to demonstrate a factory capability page. All figures are example data.",
-  "address": { "@type": "PostalAddress", "addressLocality": "Foshan", "addressRegion": "Guangdong", "addressCountry": "CN" },
-  "makesOffer": [
-    { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "QDF-7Q42 Harbourline aluminium rope lounge chair (fictional sample model)", "model": "QDF-7Q42" } }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://qiaoreach.github.io/demo-factory-sample.html#org",
+      "name": "Quellmoor Demo Furniture Works",
+      "url": "https://qiaoreach.github.io/demo-factory-sample.html",
+      "description": "Fictional example. This company does not exist. Created by QiaoReach to demonstrate a factory capability page. All figures, identifiers and certifications are example placeholder data.",
+      "address": { "@type": "PostalAddress", "addressLocality": "Foshan", "addressRegion": "Guangdong", "addressCountry": "CN" },
+      "makesOffer": [
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "QDF-7Q42 Demoline aluminium rope lounge chair (fictional sample model)", "model": "QDF-7Q42" } }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "QDF-7Q42 Demoline aluminium rope lounge chair (fictional sample model)",
+      "model": "QDF-7Q42",
+      "description": "Fictional sample product (does not exist). Example data: 760 x 820 x 710 mm, 6063 aluminium frame, olefin rope, MOQ 50 pieces per model, mass production 35 days after deposit.",
+      "width": { "@type": "QuantitativeValue", "value": 760, "unitCode": "MMT", "description": "fictional sample" },
+      "depth": { "@type": "QuantitativeValue", "value": 820, "unitCode": "MMT", "description": "fictional sample" },
+      "height": { "@type": "QuantitativeValue", "value": 710, "unitCode": "MMT", "description": "fictional sample" },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "Frame material (fictional sample)", "value": "6063-T5 aluminium, 2.0 mm wall, powder-coated" },
+        { "@type": "PropertyValue", "name": "Rope (fictional sample)", "value": "Olefin flat rope, 12 mm" },
+        { "@type": "PropertyValue", "name": "Seat height (fictional sample)", "value": 380, "unitCode": "MMT" },
+        { "@type": "PropertyValue", "name": "Carton volume (fictional sample)", "value": 0.4, "unitText": "cbm" }
+      ],
+      "offers": { "@type": "Offer", "description": "Fictional sample offer", "eligibleQuantity": { "@type": "QuantitativeValue", "minValue": 50, "unitText": "pieces per model (MOQ, fictional sample)" } },
+      "manufacturer": { "@id": "https://qiaoreach.github.io/demo-factory-sample.html#org" }
+    },
+    {
+      "@type": "WebPage",
+      "url": "https://qiaoreach.github.io/demo-factory-sample.html",
+      "name": "Quellmoor Demo Furniture Works (fictional example capability page)",
+      "dateModified": "2026-11-02",
+      "genre": "demo / fictional example",
+      "inLanguage": "en",
+      "about": { "@id": "https://qiaoreach.github.io/demo-factory-sample.html#org" },
+      "publisher": { "@type": "Organization", "name": "QiaoReach", "url": "https://qiaoreach.github.io/" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://qiaoreach.github.io/demo-factory-sample.html#faq",
+      "name": "FAQ (example answers, fictional company Quellmoor Demo Furniture Works)",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Factory or trading company?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Example answer: manufacturer with own aluminium and rope workshops. Fictional company — nothing here is verified."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the MOQ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Example: 50 pieces per model."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I mix models in one container?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Example: up to 6 models in one 40HQ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a sample cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Example: 100% charged, credited against the first bulk order; 12 days lead time; freight paid by buyer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the payment terms?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Example: T/T 30% deposit, 70% after pre-shipment inspection passes and before loading, corporate account only."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I send a third-party inspector?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Example: yes — SGS, QIMA, Bureau Veritas or any buyer-appointed inspector."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if goods arrive damaged?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Example: send photos and shipping marks within 14 days of arrival; reply within 48 h; replacement parts or credit."
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
@@ -43,10 +150,36 @@
 <main>
   <h1>Quellmoor Demo Furniture Works</h1>
   <p class="sub">Outdoor Aluminium Furniture Manufacturer, Foshan, Guangdong (fictional example)</p>
-  <p class="notice">Fictional example. This company does not exist. Created by QiaoReach to demonstrate a factory capability page. Every number below is example data.</p>
+  <p class="notice">Demo page — sample data. This company does not exist. Created by QiaoReach to demonstrate a factory capability page. Every number, identifier and photo slot below is example placeholder data.</p>
+
+  <nav class="small" aria-label="Jump to">Jump to: <a href="#retailers">Retailers / Amazon sellers</a> · <a href="#contract">Contract / hotel buyers</a> · <a href="#samples">Samples</a> · <a href="#warranty">Warranty &amp; claims</a> · <a href="#faq">FAQ</a></nav>
+
+  <section class="proof" id="factory-proof">
+    <h2>Factory proof block (demo layout, no real factory)</h2>
+    <p class="small">On a real client page, this block shows evidence a buyer can check independently. Values here are placeholders.</p>
+    <div class="tw"><table>
+      <tr><th>Registered company name</th><td><span class="ex">Example:</span> [Chinese legal name + English name, as on business licence]</td></tr>
+      <tr><th>Unified social credit code</th><td><span class="ex">Example placeholder:</span> XXXXXXXXXXXXXXXXXX (18-character placeholder, not a real code)</td></tr>
+      <tr><th>Business scope</th><td><span class="ex">Example:</span> includes furniture <em>manufacturing</em> (not trading only)</td></tr>
+      <tr><th>Factory location</th><td><span class="ex">Example:</span> Longjiang Town, Shunde District, Foshan, Guangdong. A map link and street address appear here on a real page.</td></tr>
+      <tr><th>Response time</th><td>Reply within 24 h on working days (example policy)</td></tr>
+      <tr><th>Live video factory tour</th><td>Live video tour of the workshop can be scheduled within 24 h of request (example policy)</td></tr>
+      <tr><th>Direct contact</th><td>Owner or factory manager answers serious inquiries directly. <span class="ex">This fictional company cannot be contacted.</span></td></tr>
+    </table></div>
+    <div class="slots">
+      <div class="slot" id="slot-workshop-weld"><span class="sid">slot-workshop-weld</span><span class="zh">车间实拍位：铝架焊接/加工线全景（设备+工人，非展厅）</span><span class="en">Photo slot: welding / aluminium line — full workshop view with equipment &amp; workers (not showroom). Empty — real photo only.</span></div>
+      <div class="slot" id="slot-workshop-rope"><span class="sid">slot-workshop-rope</span><span class="zh">车间实拍位：编绳/缝纫/组装线作业中</span><span class="en">Photo slot: rope weaving / sewing / assembly line in use. Empty — real photo only.</span></div>
+      <div class="slot" id="slot-workshop-qc"><span class="sid">slot-workshop-qc</span><span class="zh">车间实拍位：品检台与打包区</span><span class="en">Photo slot: QC station and packing area. Empty — real photo only.</span></div>
+      <div class="slot" id="slot-map-entrance"><span class="sid">slot-map-entrance</span><span class="zh">地图/门头实拍位：工厂入口与位置</span><span class="en">Map / entrance slot: factory gate and location. Empty — real photo only.</span></div>
+      <div class="slot" id="slot-raw-materials"><span class="sid">slot-raw-materials</span><span class="zh">原材料实拍位：型材/绳/海绵/窑干木材</span><span class="en">Photo slot: raw materials (extrusions / rope / foam / kiln-dried timber). Empty — real photo only.</span></div>
+      <div class="slot" id="slot-manager-desk"><span class="sid">slot-manager-desk</span><span class="zh">视频验厂静帧：厂长办公桌前</span><span class="en">Still for video tour: manager at desk. Empty — real photo only.</span></div>
+      <div class="slot" id="slot-warehouse"><span class="sid">slot-warehouse</span><span class="zh">成品仓实拍位：已打托纸箱</span><span class="en">Photo slot: finished-goods warehouse / palletized cartons. Empty — real photo only.</span></div>
+    </div>
+    <p class="small">Photos on a real page are taken in the workshop, not a showroom. No AI or stock workshop images — empty slots stay empty until a real factory shoots them (see factory-photo-shot-list.md).</p>
+  </section>
 
   <h2>About</h2>
-  <p>Quellmoor Demo Furniture Works is an imaginary outdoor furniture maker used to show what a complete, buyer-readable capability page looks like: product lines, capacity, MOQ, lead time, customisation options and trade terms in one structured place.</p>
+  <p>Quellmoor Demo Furniture Works is an imaginary outdoor furniture maker used to show what a complete, buyer-readable capability page looks like: factory proof, product lines, material specs, capacity, MOQ, lead time, packaging, customisation and trade terms in one structured place.</p>
 
   <h2>Product lines (example data)</h2>
   <ul>
@@ -58,21 +191,90 @@
 
   <h2>Signature sample model (example data)</h2>
   <div class="tw"><table>
-    <tr><th>Model</th><td>QDF-7Q42 "Harbourline" aluminium rope lounge chair</td></tr>
+    <tr><th>Model</th><td>QDF-7Q42 "Demoline" aluminium rope lounge chair</td></tr>
     <tr><th>Size</th><td>760 x 820 x 710 mm, seat height 380 mm</td></tr>
     <tr><th>Frame</th><td>6063 aluminium, 2.0 mm wall, powder-coated in 7 standard colours</td></tr>
     <tr><th>Rope</th><td>Olefin flat rope, 12 mm, 9 standard colours</td></tr>
     <tr><th>Cushion</th><td>Quick-dry foam, 8 cm, solution-dyed acrylic cover</td></tr>
-    <tr><th>Packing</th><td>1 piece per carton, 0.42 cbm; 160 pieces per 40HQ</td></tr>
+    <tr><th>Packing</th><td>1 piece per carton, approx. 0.4 cbm; approx. 150 pieces per 40HQ (illustrative)</td></tr>
   </table></div>
+
+  <h2>Materials specification (example data)</h2>
+  <div class="tw"><table>
+    <tr><th>Cushion foam</th><td>Quick-dry reticulated foam, density approx. 30 kg/m³ (illustrative); seat 8 cm, back 5 cm</td></tr>
+    <tr><th>Fabric</th><td>Solution-dyed acrylic, approx. 280 g/m² (illustrative), UV-resistant, removable zipped covers</td></tr>
+    <tr><th>Timber (optional armrests / table tops)</th><td>Plantation teak (Tectona grandis), kiln-dried to 10–12% moisture content</td></tr>
+    <tr><th>Aluminium</th><td>6063-T5 extrusions, 2.0 mm wall, outdoor polyester powder coat</td></tr>
+    <tr><th>Hardware</th><td>304 stainless steel bolts; nylon glides</td></tr>
+  </table></div>
+  <ul>
+    <li><strong>Bulk matches approved sample:</strong> bulk goods match the approved, sealed sample in materials, colour, dimensions and carton spec (example commitment — a real factory must only state what it will honour in the contract).</li>
+    <li><strong>Third-party inspection welcome:</strong> buyer-appointed inspectors such as SGS, QIMA or Bureau Veritas are welcome before shipment.</li>
+  </ul>
+  <figure class="diagram" id="diagram-qc-flow">
+    <img src="demo-qc-inspection-flow.png" width="1600" height="964" alt="Diagram: QC inspection flow — Approve sample, In-line check, Final QC, 3rd-party SGS/QIMA/BV welcome, Load container. Illustrative only.">
+    <figcaption>Diagram — illustrative only / Demo sample. Not a photograph.</figcaption>
+  </figure>
 
   <h2>Capacity, MOQ and lead time (example data)</h2>
   <div class="tw"><table>
-    <tr><th>Monthly capacity</th><td>6,500 pieces (seating), 1,200 tables</td></tr>
+    <tr><th>Monthly capacity</th><td>Example: 6,000 pieces/month (seating), 1,000 tables/month — round illustrative figures</td></tr>
     <tr><th>MOQ</th><td>50 pieces per model; mixed models allowed in one 40HQ (up to 6 models)</td></tr>
     <tr><th>Sample lead time</th><td>12 days</td></tr>
     <tr><th>Mass production lead time</th><td>35 days after deposit (1 x 40HQ); 45 days for custom colours</td></tr>
   </table></div>
+  <h3>Staged lead time (example, 1 x 40HQ, standard colours)</h3>
+  <div class="tw"><table>
+    <tr><th>1. Sampling</th><td>12 days from confirmed drawing</td></tr>
+    <tr><th>2. Production</th><td>35 days after deposit (incl. material preparation)</td></tr>
+    <tr><th>3. QC and inspection</th><td>2–3 days (in-house + optional third-party)</td></tr>
+    <tr><th>4. Container loading and shipping</th><td>Loading 1 day; sea transit depends on destination port (approx. 20–35 days to Europe / Australia)</td></tr>
+  </table></div>
+  <p class="small">Chinese New Year (factory closure about 3–4 weeks) and peak season can extend these times. Example note.</p>
+  <figure class="diagram" id="diagram-lead-time">
+    <img src="demo-lead-time-timeline.png" width="1600" height="1004" alt="Diagram: lead-time timeline — Sampling 12 days, Production 35 days after deposit, QC 2–3 days, Container loading and ocean transit; CNY/peak season may add delay. Illustrative only.">
+    <figcaption>Diagram — illustrative only / Demo sample. Not a photograph. Sea transit approx. 20–35 days to EU / Australia (example).</figcaption>
+  </figure>
+
+  <h2>Packaging and anti-cracking (example data)</h2>
+  <div class="tw"><table>
+    <tr><th>Timber moisture</th><td>Teak parts kiln-dried to 10–12% moisture content and checked with a moisture meter before assembly</td></tr>
+    <tr><th>Carton</th><td>5-ply export carton, foam corner protectors, PE bag + bubble wrap on frames</td></tr>
+    <tr><th>Drop test</th><td>Carton drop test to ISTA 1A on each new model (example; a real page shows the test report)</td></tr>
+    <tr><th>Pallet</th><td>On request (example); default is carton-only floor loading</td></tr>
+    <tr><th>Damage handling</th><td>Buyer reports transit damage with photos within 14 days of arrival; replacement parts or credit on next order (example policy)</td></tr>
+  </table></div>
+  <figure class="diagram" id="diagram-packaging">
+    <img src="demo-packaging-layers.png" width="1600" height="1004" alt="Demo diagram (fictional): packaging layers — kiln-dried timber (teak parts only), foam wrap, corner protectors, 5-layer carton, pallet on request. Illustrative only.">
+    <figcaption>Diagram — illustrative only / Demo sample. Not a photograph. The kiln-dried timber layer applies only to optional teak parts; the aluminium frame is wrapped in bubble wrap + PE bag. Pallet on request.</figcaption>
+  </figure>
+  <div class="slots">
+    <div class="slot" id="slot-pack-carton"><span class="sid">slot-pack-carton</span><span class="zh">包装实拍位：护角+五层出口纸箱</span><span class="en">Photo slot: packed carton with corner protectors. Empty — real photo only.</span></div>
+    <div class="slot" id="slot-moisture-meter"><span class="sid">slot-moisture-meter</span><span class="zh">包装实拍位：木材含水率仪读数</span><span class="en">Photo slot: moisture meter reading on timber. Empty — real photo only.</span></div>
+    <div class="slot" id="slot-drop-test"><span class="sid">slot-drop-test</span><span class="zh">包装实拍位：纸箱跌落测试</span><span class="en">Photo slot: carton drop test. Empty — real photo only.</span></div>
+  </div>
+
+  <h2 id="retailers">For retailers and Shopify / Amazon sellers (example data)</h2>
+  <ul>
+    <li>MOQ 50 pieces per model; up to 6 models mixed in one 40HQ</li>
+    <li>Trial first order and paid samples available (see sample policy below)</li>
+    <li>Private-label cartons and logo plate; product photos for listings on request</li>
+  </ul>
+
+  <h2 id="samples">Sample policy (example data)</h2>
+  <div class="tw"><table>
+    <tr><th>Sample fee</th><td>100% charged; credited against the first bulk order (example)</td></tr>
+    <tr><th>Sample lead time</th><td>12 days from confirmed drawing</td></tr>
+    <tr><th>Sample freight</th><td>Paid by buyer (courier account or prepaid) (example)</td></tr>
+    <tr><th>Sealed sample</th><td>Two sealed samples signed by both sides — one kept by buyer, one at the factory as the bulk reference</td></tr>
+  </table></div>
+
+  <h2 id="contract">For contract and hotel buyers (example data)</h2>
+  <ul>
+    <li>Shop drawings and prototypes from designer drawings</li>
+    <li>Custom sizes, RAL colours and buyer-specified fabrics</li>
+    <li>Typical documents buyers request for this category: EN 581 (outdoor seating and tables, EU/UK); BS 5852 / TB 117-2013 for upholstered cushions in contract use; FSC chain-of-custody for teak parts; REACH / SVHC declaration for fabrics and coatings may apply for EU buyers — to be verified (<a href="https://single-market-economy.ec.europa.eu/sectors/chemicals/reach_en">European Commission: REACH</a>). CARB / TSCA Title VI formaldehyde rules apply only if composite wood (plywood, MDF, particleboard) is used. This fictional company holds none.</li>
+  </ul>
 
   <h2>Customisation (example data)</h2>
   <ul>
@@ -84,11 +286,53 @@
 
   <h2>Trade terms (example data)</h2>
   <div class="tw"><table>
-    <tr><th>Incoterms</th><td>FOB Shenzhen, CIF</td></tr>
-    <tr><th>Payment</th><td>T/T 30% deposit, 70% before loading</td></tr>
+    <tr><th>Payment</th><td>T/T 30% deposit; 70% after pre-shipment inspection passes, before loading; corporate bank account only (never a personal account); platform escrow such as Trade Assurance, if the factory uses it (example)</td></tr>
     <tr><th>Main markets</th><td>Western Europe, Australia, Middle East</td></tr>
     <tr><th>Certifications</th><td>None claimed. This is a fictional company.</td></tr>
   </table></div>
+
+  <h2>Shipping terms (example data)</h2>
+  <div class="tw"><table>
+    <tr><th>FOB Nansha or Shekou (example)</th><td>Price includes goods, export packing, inland trucking to port and export customs clearance</td></tr>
+    <tr><th>CIF (destination port)</th><td>FOB + sea freight + marine insurance to the named port; destination charges, duties and delivery paid by buyer</td></tr>
+    <tr><th>DDP (on request)</th><td>Quoted to a named address including freight, duties and customs; the quote states whether unloading and inside delivery are included</td></tr>
+    <tr><th>No hidden fees</th><td>All charges are listed on one proforma invoice; no extra charges after payment unless the buyer changes the order (example commitment — a real factory must only state what it will honour in the contract)</td></tr>
+  </table></div>
+
+  <h2 id="warranty">Warranty and claims (example data)</h2>
+  <div class="tw"><table>
+    <tr><th>Frame</th><td>5 years (example; set by the factory)</td></tr>
+    <tr><th>Powder coating</th><td>3 years (example; set by the factory)</td></tr>
+    <tr><th>Rope weave &amp; cushion fabric</th><td>1 year (example; set by the factory)</td></tr>
+    <tr><th>Bulk differs from sealed sample</th><td>Third-party inspection report is the reference → rework, replacement or price deduction (example)</td></tr>
+    <tr><th>Claim process</th><td>Buyer sends photos + carton shipping marks; factory answers within 48 h (example)</td></tr>
+  </table></div>
+
+  <h2>Verified facts (demo format)</h2>
+  <p class="small">On a real client page, QiaoReach lists each checked fact, how it was checked, and the date. This demo shows the format only; nothing below has been verified because the company is fictional.</p>
+  <div class="tw"><table>
+    <tr><th>Business registration</th><td><span class="ex">Example:</span> checked against China's National Enterprise Credit Information Publicity System. Date: [YYYY-MM-DD]. Status for this page: not applicable (fictional).</td></tr>
+    <tr><th>Factory address</th><td><span class="ex">Example:</span> confirmed by live video tour and map match. Date: [YYYY-MM-DD]. Status: not applicable (fictional).</td></tr>
+    <tr><th>Workshop photos</th><td><span class="ex">Example:</span> taken on site, dated. Status: not applicable (fictional).</td></tr>
+    <tr><th>Certifications</th><td><span class="ex">Example:</span> certificate number checked with issuer. Status: none claimed.</td></tr>
+    <tr><th>Page last updated</th><td>2026-11-02, by QiaoReach</td></tr>
+  </table></div>
+
+  <h2 id="faq">FAQ (example answers, fictional company)</h2>
+  <h3>Factory or trading company?</h3>
+  <p>Example answer: manufacturer with own aluminium and rope workshops. Fictional company — nothing here is verified.</p>
+  <h3>What is the MOQ?</h3>
+  <p>Example: 50 pieces per model.</p>
+  <h3>Can I mix models in one container?</h3>
+  <p>Example: up to 6 models in one 40HQ.</p>
+  <h3>How much does a sample cost?</h3>
+  <p>Example: 100% charged, credited against the first bulk order; 12 days lead time; freight paid by buyer.</p>
+  <h3>What are the payment terms?</h3>
+  <p>Example: T/T 30% deposit, 70% after pre-shipment inspection passes and before loading, corporate account only.</p>
+  <h3>Can I send a third-party inspector?</h3>
+  <p>Example: yes — SGS, QIMA, Bureau Veritas or any buyer-appointed inspector.</p>
+  <h3>What if goods arrive damaged?</h3>
+  <p>Example: send photos and shipping marks within 14 days of arrival; reply within 48 h; replacement parts or credit.</p>
 
   <h2>Contact</h2>
   <p>This company does not exist and cannot be contacted.</p>
