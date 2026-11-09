@@ -7,16 +7,22 @@
   --paper: #f3f0e8;
   --card: #ffffff;
   --line: #e4ddd0;
-  --navy: #102033;
-  --navy-2: #173049;
-  --teal: #1c6d76;
+  --navy: #07182c;
+  --navy-2: #0c4a6e;
+  --teal: #0e6e78;
   --teal-2: #8fd0d4;
-  --brass: #a78445;
-  --sand: #fbf6ea;
-  --sand-line: #e5d6b2;
-  --warn: #f8f3ee;
-  --warn-line: #8d5a3c;
-  --focus: #f2d48a;
+  --accent: #e8891a;
+  --accent-deep: #c2410c;
+  --accent-ink: #1a140c;
+  --link: #9a3d0c;
+  --cool: #e5f4f6;
+  --warm: #fbf3e6;
+  --brass: #e8891a;
+  --sand: #fbf3e6;
+  --sand-line: #e7c98a;
+  --warn: #fbf3e6;
+  --warn-line: #c2410c;
+  --focus: #e8891a;
   color-scheme: light;
 }
 
@@ -32,8 +38,8 @@ body {
   font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 }
 
-a { color: #0d4f73; }
-a:hover { color: #08364f; }
+a { color: var(--link); }
+a:hover { color: #7c320c; }
 a:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 3px;
@@ -54,9 +60,9 @@ body.home { background: var(--paper); }
   position: sticky;
   top: 0;
   z-index: 20;
-  background: #0c1826;
+  background: #071422;
   color: #fff;
-  border-bottom: 3px solid var(--teal);
+  border-bottom: 4px solid var(--accent);
 }
 
 .license-bar a {
@@ -116,12 +122,23 @@ body.home { background: var(--paper); }
   overflow: hidden;
   max-width: none;
   margin: 0;
-  padding: 28px max(20px, calc((100% - 1040px) / 2)) 52px;
-  border-bottom: 3px solid var(--teal);
+  padding: 28px max(20px, calc((100% - 1040px) / 2)) 56px;
+  border-bottom: 4px solid var(--accent);
   background:
-    radial-gradient(640px 240px at 88% 20%, rgba(143, 208, 212, 0.22), transparent 70%),
-    linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+    radial-gradient(520px 220px at 92% 0%, rgba(232, 137, 26, 0.28), transparent 62%),
+    radial-gradient(680px 320px at 78% 110%, rgba(20, 160, 168, 0.45), transparent 60%),
+    linear-gradient(118deg, #07182c 0%, #0c4a6e 42%, #0e7490 74%, #1493a0 100%);
   color: #f6f3ec;
+}
+
+.hero-globe {
+  display: none;
+  position: absolute;
+  right: max(24px, calc((100% - 1040px) / 2 + 250px));
+  top: 18px;
+  width: 168px;
+  height: auto;
+  pointer-events: none;
 }
 
 .hero-bridge {
@@ -157,22 +174,44 @@ body.home { background: var(--paper); }
 .hero .en { color: #c9d6e3; }
 
 body.home main {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 8px 20px 48px;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.band {
+  padding: 28px max(20px, calc((100% - 1040px) / 2)) 32px;
+}
+
+.band.cool { background: var(--cool); }
+.band.warm { background: var(--warm); }
+
+.band.price {
+  background:
+    radial-gradient(480px 180px at 100% 0%, rgba(255, 255, 255, 0.28), transparent 60%),
+    linear-gradient(120deg, #f8c453 0%, #f0a020 48%, #e8891a 100%);
+  color: var(--accent-ink);
+}
+
+.band.price h2,
+.band.price p,
+.band.price .en { color: var(--accent-ink); }
+
+.band.price h2 {
+  background-image: linear-gradient(#7c320c, #7c320c);
 }
 
 body.home h2 {
-  margin: 36px 0 14px;
+  margin: 0 0 14px;
   padding-bottom: 8px;
   font-size: 1.28rem;
   line-height: 1.35;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--ink);
-  background-image: linear-gradient(var(--teal), var(--teal));
+  background-image: linear-gradient(var(--accent), var(--accent));
   background-repeat: no-repeat;
-  background-size: 42px 2px;
+  background-size: 56px 3px;
   background-position: left bottom;
 }
 
@@ -185,7 +224,7 @@ body.home h2 {
 .card {
   background: var(--card);
   border: 1px solid var(--line);
-  border-top: 3px solid var(--teal);
+  border-top: 4px solid var(--accent);
   border-radius: 16px;
   padding: 20px 20px 18px;
   box-shadow: 0 10px 28px rgba(16, 32, 51, 0.04);
@@ -200,14 +239,24 @@ body.home h2 {
 .card b.ico {
   position: relative;
   display: inline-block;
-  padding-left: 28px;
+  padding-left: 48px;
 }
 
 .card b.ico svg {
   position: absolute;
   left: 0;
-  top: 0.15em;
-  color: var(--teal);
+  top: -2px;
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.card:nth-child(2) b.ico svg {
+  background: var(--teal);
+  color: #fff;
 }
 
 .card p { color: var(--ink-soft); margin: 8px 0 0; }
@@ -240,8 +289,8 @@ ul.check .en { color: var(--muted); }
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--navy);
-  color: #fff;
+  background: var(--accent);
+  color: var(--accent-ink);
   text-align: center;
   line-height: 32px;
   font-size: 0.9rem;
@@ -265,6 +314,7 @@ ul.check li {
   padding: 14px 16px;
   background: var(--card);
   border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
   border-radius: 12px;
 }
 
@@ -273,55 +323,68 @@ ul.check li {
   padding: 20px 20px 16px;
   background: var(--card);
   border: 1px solid var(--line);
-  border-left: 4px solid var(--teal);
+  border-left: 4px solid var(--accent);
   border-radius: 14px;
 }
 
 .sample-box a {
-  color: #0d4f73;
+  display: inline-block;
+  margin-top: 4px;
+  padding: 10px 16px;
+  background: var(--accent-deep);
+  color: #fff;
   font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
+  border-radius: 999px;
 }
 
 .contact {
-  margin-top: 36px;
-  padding: 24px 22px;
+  margin: 0;
+  padding: 32px max(20px, calc((100% - 1040px) / 2));
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 18px 28px;
-  background: var(--navy);
-  color: #f6f3ec;
-  border-radius: 16px;
+  background:
+    radial-gradient(420px 180px at 100% 0%, rgba(232, 137, 26, 0.28), transparent 70%),
+    linear-gradient(125deg, #072033 0%, #0c4a6e 46%, #0e6e78 100%);
+  color: #f4fbff;
+  border-radius: 0;
+  border-top: 4px solid var(--accent);
 }
 
 .contact b { font-size: 1.22rem; }
-.contact span { color: #d5e0eb; }
-.contact a { color: #fff; }
+.contact span { color: #e7f6f8; }
+.contact a { color: var(--accent-ink); }
 
 a.mail {
   position: relative;
   display: inline-block;
-  padding-left: 28px;
+  padding: 12px 18px 12px 44px;
+  background: var(--accent);
+  color: var(--accent-ink);
   font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
+  border-radius: 999px;
 }
 
 a.mail svg {
   position: absolute;
-  left: 0;
-  top: 0.12em;
+  left: 14px;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
 }
 
 .foot {
   max-width: none;
   margin: 0;
   padding: 26px max(20px, calc((100% - 1040px) / 2)) 32px;
-  background: #0c1826;
+  background: #071422;
   color: #d7e1ec;
+  border-top: 4px solid var(--accent);
   font-size: 0.95rem;
 }
 
@@ -358,6 +421,7 @@ body.license .back {
   margin: 0 0 18px;
   padding: 14px 22px;
   background: var(--navy);
+  border-bottom: 4px solid var(--accent);
 }
 
 body.license .back a {
@@ -382,15 +446,19 @@ body.license h1 {
   font-size: 1.45rem;
   line-height: 1.4;
   font-weight: 700;
-  border-bottom: 2px solid var(--teal);
+  border-bottom: 3px solid var(--accent);
 }
 
 body.license .field {
   margin: 0 22px 10px;
-  padding: 10px 0;
+  padding: 12px 12px;
   font-size: 1.125rem;
-  border-bottom: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: 8px;
 }
+
+body.license .field:nth-of-type(even) { background: var(--warm); }
+body.license .field:nth-of-type(odd) { background: var(--cool); }
 
 body.license .field:last-child { border-bottom: none; }
 
@@ -444,10 +512,10 @@ body.doc h2 {
   font-size: 1.16rem;
   line-height: 1.35;
   border-bottom: none;
-  background-image: linear-gradient(var(--line), var(--line));
+  background-image: linear-gradient(var(--accent), var(--accent)), linear-gradient(var(--line), var(--line));
   background-repeat: no-repeat;
-  background-size: 100% 1px;
-  background-position: left bottom;
+  background-size: 48px 3px, 100% 1px;
+  background-position: left bottom, left bottom;
 }
 
 body.doc h3 { font-size: 1.02rem; margin: 18px 0 6px; }
@@ -640,8 +708,10 @@ body.doc nav a { text-underline-offset: 2px; }
 
 @media (min-width: 1040px) {
   .hero-bridge { display: block; width: 300px; }
+  .hero-globe { display: block; }
 }
 
 @media (min-width: 1200px) {
   .hero-bridge { width: 360px; }
+  .hero-globe { width: 190px; }
 }
