@@ -404,6 +404,85 @@ a.mail svg {
   top: 0.15em;
 }
 
+.foot a.analytics,
+.foot button.analytics {
+  display: inline-block;
+  margin-top: 8px;
+  margin-right: 16px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #fff;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 650;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.foot button.analytics { padding-left: 0; }
+
+body.has-analytics-banner { padding-bottom: 280px; }
+
+#analytics-banner {
+  position: fixed;
+  z-index: 40;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 16px max(20px, calc((100% - 1040px) / 2)) 18px;
+  background: #071422;
+  color: #f4f7fb;
+  border-top: 4px solid var(--accent);
+  box-shadow: 0 -10px 28px rgba(7, 20, 34, 0.28);
+}
+
+#analytics-banner p { margin: 0 0 8px; line-height: 1.55; }
+
+#analytics-banner p strong { color: #fff; }
+
+#analytics-banner a { color: #fff; font-weight: 650; }
+
+#analytics-banner .analytics-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+#analytics-banner button {
+  font: inherit;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#analytics-banner button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+#analytics-banner button.accept {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: 0;
+}
+
+#analytics-banner button.decline {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #d7e1ec;
+}
+
+@media (max-width: 600px) {
+  body.has-analytics-banner { padding-bottom: 460px; }
+  #analytics-banner .analytics-actions { flex-direction: column; }
+  #analytics-banner button { width: 100%; }
+}
+
 /* ---------- License ---------- */
 
 body.license main {
