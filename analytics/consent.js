@@ -82,12 +82,14 @@
 
     accept.addEventListener("click", function () {
       writeChoice(ACCEPTED);
+      localStorage.removeItem("umami.disabled");
       hideBanner();
       loadTracker();
     });
 
     decline.addEventListener("click", function () {
       writeChoice(DECLINED);
+      localStorage.setItem("umami.disabled", "1");
       var existing = document.querySelector('script[src="/analytics/umami.js"]');
       if (existing) existing.remove();
       hideBanner();
