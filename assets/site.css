@@ -404,6 +404,14 @@ a.mail svg {
   top: 0.15em;
 }
 
+.foot a.analytics {
+  display: inline-block;
+  margin-top: 8px;
+  padding-left: 0;
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
 /* ---------- License ---------- */
 
 body.license main {
