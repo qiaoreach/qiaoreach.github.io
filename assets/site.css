@@ -424,7 +424,7 @@ a.mail svg {
 
 .foot button.analytics { padding-left: 0; }
 
-body.has-analytics-banner { padding-bottom: 240px; }
+body.has-analytics-banner { padding-bottom: 280px; }
 
 #analytics-banner {
   position: fixed;
@@ -478,7 +478,7 @@ body.has-analytics-banner { padding-bottom: 240px; }
 }
 
 @media (max-width: 600px) {
-  body.has-analytics-banner { padding-bottom: 320px; }
+  body.has-analytics-banner { padding-bottom: 460px; }
   #analytics-banner .analytics-actions { flex-direction: column; }
   #analytics-banner button { width: 100%; }
 }

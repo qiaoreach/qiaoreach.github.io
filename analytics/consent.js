@@ -35,10 +35,20 @@
     document.body.appendChild(script);
   }
 
+  function fitBannerSpace() {
+    var banner = document.getElementById("analytics-banner");
+    if (!banner) {
+      document.body.style.paddingBottom = "";
+      return;
+    }
+    document.body.style.paddingBottom = (banner.offsetHeight + 24) + "px";
+  }
+
   function hideBanner() {
     var banner = document.getElementById("analytics-banner");
     if (banner) banner.remove();
     document.body.classList.remove("has-analytics-banner");
+    document.body.style.paddingBottom = "";
   }
 
   function showBanner() {
@@ -104,7 +114,10 @@
     banner.appendChild(actions);
     document.body.classList.add("has-analytics-banner");
     document.body.appendChild(banner);
+    fitBannerSpace();
   }
+
+  window.addEventListener("resize", fitBannerSpace);
 
   document.addEventListener("click", function (event) {
     var node = event.target && event.target.closest
