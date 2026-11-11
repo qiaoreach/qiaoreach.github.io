@@ -2,7 +2,7 @@
  * Umami Cloud tracker, self-hosted copy for qiaoreach.github.io.
  * Source: https://cloud.umami.is/script.js
  * Downloaded: 2026-11-11
- * Origin Last-Modified: Tue, 10 Nov 2026 04:21:43 GMT
+ * Last-Modified: Tue, 10 Nov 2026 04:21:43 GMT
  * Origin ETag / MD5: 69c88607d9ccbeca7a4dcec8021e6f0a
  * Origin SHA-256: c11c9d29ac15ee26ef07059add176fd7db95acbf8e8bdb1a79796b0ffdb58f18
  * This build posts to (data-host-url || "https://gateway.umami.is") + "/api/send".
